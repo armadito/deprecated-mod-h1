@@ -2,17 +2,27 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <ModuleRoot>$(SolutionDir)..\..\..\..\</ModuleRoot>
-    <A6oMdkRoot>$(ModuleRoot)..\armadito-av\build\windows\VS12\</A6oMdkRoot>
+    <A6oModuleRoot>$(SolutionDir)..\..\..\..\</A6oModuleRoot>
+    <A6oOut>$(A6oModuleRoot)..\OUT\$(Platform)\$(Configuration)\</A6oOut>
+    <A6oMdkRoot>$(A6oOut)</A6oMdkRoot>
     <A6oMdkInclude>$(A6oMdkRoot)include</A6oMdkInclude>
-    <A6oMdkLib>libarmadito.lib</A6oMdkLib>
-    <A6oMdkLibDir>$(A6oMdkRoot)lib\$(Platform)\$(Configuration)</A6oMdkLibDir>
+    <A6oMdkLib>$(A6oMdkRoot)</A6oMdkLib>
+    <A6oMdkLibraries>Armadito.lib</A6oMdkLibraries>
+    <A6oModuleAdditionalInclude>
+    </A6oModuleAdditionalInclude>
+    <A6oModuleAdditionalLib>
+    </A6oModuleAdditionalLib>
+    <A6oModuleAdditionalLibraries>
+    </A6oModuleAdditionalLibraries>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
   <ItemGroup>
-    <BuildMacro Include="ModuleRoot">
-      <Value>$(ModuleRoot)</Value>
+    <BuildMacro Include="A6oModuleRoot">
+      <Value>$(A6oModuleRoot)</Value>
+    </BuildMacro>
+    <BuildMacro Include="A6oOut">
+      <Value>$(A6oOut)</Value>
     </BuildMacro>
     <BuildMacro Include="A6oMdkRoot">
       <Value>$(A6oMdkRoot)</Value>
@@ -23,8 +33,17 @@
     <BuildMacro Include="A6oMdkLib">
       <Value>$(A6oMdkLib)</Value>
     </BuildMacro>
-    <BuildMacro Include="A6oMdkLibDir">
-      <Value>$(A6oMdkLibDir)</Value>
+    <BuildMacro Include="A6oMdkLibraries">
+      <Value>$(A6oMdkLibraries)</Value>
+    </BuildMacro>
+    <BuildMacro Include="A6oModuleAdditionalInclude">
+      <Value>$(A6oModuleAdditionalInclude)</Value>
+    </BuildMacro>
+    <BuildMacro Include="A6oModuleAdditionalLib">
+      <Value>$(A6oModuleAdditionalLib)</Value>
+    </BuildMacro>
+    <BuildMacro Include="A6oModuleAdditionalLibraries">
+      <Value>$(A6oModuleAdditionalLibraries)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
