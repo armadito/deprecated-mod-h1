@@ -162,7 +162,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			MODULEH1_DBDIR "/windows/DBI_sain.dat") != 0)
 		return ARMADITO_MOD_INIT_ERROR;
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 PE databases loaded from %s " MODULEH1_DBDIR "/windows");
+	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 PE databases loaded from " MODULEH1_DBDIR "/windows");
 	
 #endif
 
@@ -217,16 +217,9 @@ static enum a6o_mod_status moduleH1_close(struct a6o_module *module)
 /* FIXME: add bases status */
 static enum a6o_update_status moduleH1_info(struct a6o_module *module, struct a6o_module_info *info)
 {
-	time_t ts = 0;
 	struct tm timeptr = {0, 30, 8, 1, 8, 114}; // 01/09/2014 9:30
-	
-	info->base_infos = (struct a6o_base_info **)malloc(sizeof(struct a6o_base_info *));
-	info->base_infos[0] = NULL;
-	
-	info->update_date = os_strdup("2014-09-01T09:30:00Z");
 
-	ts = mktime(&timeptr);
-	info->timestamp = ts;
+	info->mod_update_ts = mktime(&timeptr);
 
 	return ARMADITO_UPDATE_OK;
 }
