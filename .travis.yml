@@ -25,11 +25,11 @@ before_script:
   - cd armadito-av/core
   - ./autogen.sh
   - mkdir -p /home/travis/build/armadito-core
-  - ./configure --prefix=/home/travis/build/armadito-core PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig
+  - ./configure --prefix=/home/travis/build/armadito-core
   - make
   - make install
   - cd /home/travis/build/armadito/armadito-mod-h1
   - ./autogen.sh
 
 script:
-  ./configure && make clean && make && make check
+  ./configure PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig && make clean && make && make check
