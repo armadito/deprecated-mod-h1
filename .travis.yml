@@ -5,6 +5,7 @@ dist: trusty
 env:
   global:
   - PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+  - PREFIX=~/armadito-core
 
 addons:
   apt:
@@ -28,6 +29,7 @@ before_script:
   - git clone git://github.com/armadito/armadito-av -b DEV
   - cd armadito-av/core
   - ./autogen.sh && ./configure && make clean && make && make install
+  - cd ../../
 
 script:
   ./configure && make clean && make && make check
