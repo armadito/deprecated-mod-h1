@@ -24,7 +24,7 @@ before_script:
   - git clone git://github.com/armadito/armadito-av -b DEV
   - cd armadito-av/core
   - ./autogen.sh
-  - ./configure PREFIX=~/armadito-core PKG_CONFIG_PATH=~/armadito-core/lib/pkgconfig
+  - ./configure --prefix=~/armadito-core PKG_CONFIG_PATH=~/armadito-core/lib/pkgconfig
   - make
   - make install
   - cd ../../
