@@ -4,8 +4,8 @@ dist: trusty
 
 env:
   global:
-  - PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   - PREFIX=~/armadito-core
+  - PKG_CONFIG_PATH=~/armadito-core/lib/pkgconfig
 
 addons:
   apt:
