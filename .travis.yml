@@ -28,7 +28,7 @@ before_script:
   - ./configure --prefix=/home/travis/build/armadito-core PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig
   - make
   - make install
-  - cd ../../
+  - cd /home/travis/build/armadito/armadito-mod-h1
 
 script:
   ./configure && make clean && make && make check
