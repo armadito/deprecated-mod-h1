@@ -29,6 +29,7 @@ before_script:
   - make
   - make install
   - cd /home/travis/build/armadito/armadito-mod-h1
+  - ./autogen.sh
 
 script:
   ./configure && make clean && make && make check
