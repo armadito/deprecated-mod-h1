@@ -118,32 +118,28 @@ PVECTOR vectorLoad(CHAR* fileName){
 	DWORD currentSize;
 	FILE* fd = NULL;
 
-	/*file reading*/
 	fd = os_fopen(fileName, "rb");
 	if (fd == NULL){
 		return NULL;
 	}
-	else{
-		/*file size calculation*/
-		fseek(fd, 0L, SEEK_END);
-		currentSize = ftell(fd);
-		rewind(fd);
 
-		content = vectorNew(currentSize / sizeof(VEC_TYPE));
-		if (content == NULL){
-			fclose(fd);
-			return NULL;
-		}
+	fseek(fd, 0L, SEEK_END);
+	currentSize = ftell(fd);
+	rewind(fd);
 
-		/*content reading*/
-		if (fread(content->v, 1, currentSize, fd) != currentSize) {
-			vectorDelete(content);
-			fclose(fd);
-			return NULL;
-		}
-
+	content = vectorNew(currentSize / sizeof(VEC_TYPE));
+	if (content == NULL){
 		fclose(fd);
+		return NULL;
 	}
 
+	/*content reading*/
+	if (fread(content->v, 1, currentSize, fd) != currentSize) {
+		vectorDelete(content);
+		fclose(fd);
+		return NULL;
+	}
+
+	fclose(fd);
 	return content;
 }

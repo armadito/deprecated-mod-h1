@@ -95,7 +95,6 @@ PMODEL modelLoadFromZip(CHAR* zipName){
 				for (j = 0; j < i; j++){
 					vectorDelete(modelArray->modelFiles[j]);
 				}
-				free(modelArray->modelFiles);
 				free(modelArray);
 				return NULL;
 			}
@@ -160,7 +159,7 @@ PMODEL modelLoad(CHAR* dirName){
 					vectorDelete(modelArray->modelFiles[j]);
 				}
 				free(modelArray);
-				free(modelArray->modelFiles);
+				closedir(rep);
 				return NULL;
 			}
 
