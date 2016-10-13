@@ -90,28 +90,27 @@ VEC_TYPE vectorGetValue(PVECTOR v, DWORD i){
 }
 
 VEC_TYPE vectorGetValueWithPaddedVector(PVECTOR v, DWORD i){
-	if (i >= v->n){
-		return 0;
-	}
+
 	if (v == NULL){
 		return (VEC_TYPE)-1;
+	}
+
+	if (i >= v->n){
+		return 0;
 	}
 
 	return v->v[i];
 }
 
-VOID vectorDelete(PVECTOR x){
-	if (x == NULL || x->v == NULL){
-		return;
+VOID vectorDelete(PVECTOR x)
+{
+	if(x->v != NULL) {
+	   free(x->v);
 	}
-	free(x->v);
-	x->v = NULL;
 
-	if (x == NULL){
-		return;
+	if (x != NULL) {
+	   free(x);
 	}
-	free(x);
-	x = NULL;
 }
 
 PVECTOR vectorLoad(CHAR* fileName){
