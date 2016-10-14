@@ -1,5 +1,6 @@
 Armadito module H1
 ==================
+[![Build Status](https://travis-ci.org/armadito/armadito-mod-h1.svg?branch=DEV)](https://travis-ci.org/armadito/armadito-mod-h1)
 
 Armadito module H1 is a scan module dedicated to binaries analysis (PE and ELF).
 
