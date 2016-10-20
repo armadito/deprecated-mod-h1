@@ -53,4 +53,4 @@ before_script:
 script:
   - ./configure PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig
   - build-wrapper-linux-x86-64 --out-dir . make clean all
-  - sonar-scanner -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
+  - sonar-scanner -e -X -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
