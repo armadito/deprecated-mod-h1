@@ -32,6 +32,9 @@ env:
 
 before_install:
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - wget https://sonarqube.com/static/cpp/build-wrapper-linux-x86.zip
+  - unzip build-wrapper-linux-x86.zip
+  - export PATH=$PWD/build-wrapper-linux-x86:$PATH
 
 compiler:
   - gcc
@@ -48,5 +51,8 @@ before_script:
   - ./autogen.sh
 
 script:
-  - ./configure PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig && make clean && make && make check
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
+  - ./configure PKG_CONFIG_PATH=/home/travis/build/armadito-core/lib/pkgconfig
+  - build-wrapper-linux-x86-64 --out-dir . make clean
+  - build-wrapper-linux-x86-64 --out-dir . make
+  - build-wrapper-linux-x86-64 --out-dir . make check
+  - sonar-scanner -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
