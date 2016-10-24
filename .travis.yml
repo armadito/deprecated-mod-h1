@@ -26,12 +26,11 @@ env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "VBRuucKW724c/FVLkSzWaePaQtHDUinBN6qZ1dQzLteQUvIGi5x7UIBBPHO+78L+rNPFYXi4fC0v/6F7JjU+STuHm5sAsXyo9vu3g1d6Hr6D9LYe2j+oVU4MGO9LPU74rbnINHhQ8/TEZbFfWWaRE7RSo66cZA4WygFyeUAlCPEB/d6Aw8P6zg66OSJ8Ti4n4EpUXpU0auBZbxjgRJNA6qkg1Nf1x2CM2IdhJbrDYB2xHKcw3z4++7872EJLcqWP++5V90fgYQEq2iaR5uOlZYsD7T3ZuRfC524eqK2CFMddceza7UjBlOkAq9Tex97e5LDTWgzd0g29cVfbOOo5kMbrZYlvXrX7W4/uQ4rnai/t1u+/VIlzYJYJZwloR7eFgStIZeKSjBkMwYUteYr/hvkSrz3bmkSsiWVJ4UYxKv+PszIm3k39qfWmYJbjCBpiICVLEsQ5tKXac8cUX/fPYGmSLPYbWxWlJtoQM5gynn1bvRa2giG8zq9x2R0+U+33FTJm7bh1yyL9vLv6p25sDmxfH2u2JbI2mshN0MnOL26soaueSaJrH8MpD/58q64vaV2x9d7pZDuBqLIV6QkTDDfYv1g33QZcoTVMBXQyL5ku+XC7smOTziH20y96jEGTD8ztJk81ACSNgFCtRC0fC8RUrDOgG5YBoehvU4cdEVw="
+   - secure: "VBRuucKW724c/FVLkSzWaePaQtHDUinBN6qZ1dQzLteQUvIGi5x7UIBBPHO+78L+rNPFYXi4fC0v/6F7JjU+STuHm5sAsXyo9vu3g1d6Hr6D9LYe2j+oVU4MGO9LPU74rbnINHhQ8/TEZbFfWWaRE7RSo66cZA4WygFyeUAlCPEB/d6Aw8P6zg66OSJ8Ti4n4EpUXpU0auBZbxjgRJNA6qkg1Nf1x2CM2IdhJbrDYB2xHKcw3z4++7872EJLcqWP++5V90fgYQEq2iaR5uOlZYsD7T3ZuRfC524eqK2CFMddceza7UjBlOkAq9Tex97e5LDTWgzd0g29cVfbOOo5kMbrZYlvXrX7W4/uQ4rnai/t1u+/VIlzYJYJZwloR7eFgStIZeKSjBkMwYUteYr/hvkSrz3bmkSsiWVJ4UYxKv+PszIm3k39qfWmYJbjCBpiICVLEsQ5tKXac8cUX/fPYGmSLPYbWxWlJtoQM5gynn1bvRa2giG8zq9x2R0+U33FTJm7bh1yyL9vLv6p25sDmxfH2u2JbI2mshN0MnOL26soaueSaJrH8MpD/58q64vaV2x9d7pZDuBqLIV6QkTDDfYv1g33QZcoTVMBXQyL5ku+XC7smOTziH20y96jEGTD8ztJk81ACSNgFCtRC0fC8RUrDOgG5YBoehvU4cdEVw="
    - secure: "d6JZz/DJ8gOR7ikFjDSxFTaGzyMSBiYkHQsiVmssrkl3dNspAlnlAyNRjfN9GF6t4jjOUNbI5D6LicMURV8tQnT9DBJAwcnzD+FmgsraMlrWN70TaQEkQeG2vipC9M68hNiafBNAqT3FusOdHV+s4rV/MuXZP6SMFbxfYsJ446slB76CvaB7Qc+hutIquesfOfndDwwhCaYwYwVKoi+aobW1trGIJX5oAbVVScuziPP0mXPcfYAQ/vXNcot3KqgkvJL+5jh3pIkOnxyXC/FBylCp7y9+Ms+WwYbIfyTV2toojFFWnLSliTbQlF7uXDrfi7iF02pulcaCVyU/hkujHGCYwwXlOgz8Nh4g3MwHOwUSKeOJQp5OnwKZ4E4ljsuRJ0tQGUbXDE84pBC6A+ojPxyW1IzWgbBedsJSEF43xd3q6EFxNStKAsx9RCOaGWe3dxtSE1JK6SObjna6CXSj6Zv6sJBtnqAJaUwq04PtZNPI3IOfHZshF8z/LsrGNPoqItSZXekXhsf9UQFi+DgV8vkbl38rNJuaLeJxZ54h+jTKuaBWSnb5yywOhAqcflV/88xEjDeJoE3Kt0XKU1qSAAdZrVcdejGkjDc6WIEFABYNDkQk3DeufEZiunjn1qkVwxM4mD/Ovg1qJLBPSOce87tZPyUmCyVN0WV2ln/vjCc="
 
 before_install:
-  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-  CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
   - wget https://sonarqube.com/static/cpp/build-wrapper-linux-x86.zip
   - unzip build-wrapper-linux-x86.zip
   - export PATH=$PWD/build-wrapper-linux-x86:$PATH
