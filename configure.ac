@@ -1,5 +1,5 @@
-AC_INIT(armadito-mod-h1, [0.10.1], fdechelle@teclib.com)
-AM_INIT_AUTOMAKE
+AC_INIT(armadito-mod-h1, [0.12.7], fdechelle@teclib.com)
+AM_INIT_AUTOMAKE([foreign])
 
 # collect arguments
 # debug
