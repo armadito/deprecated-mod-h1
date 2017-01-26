@@ -197,12 +197,13 @@ static enum a6o_file_status moduleH1_scan(struct a6o_module *module, int fd, con
 		/* even if virus_name is a statically allocated string, it must be returned in a dynamically allocated string */
 		/* because it will be free()d by the calling code */
 		*pmod_report = os_strdup(virus_name);
-		return A6O_MALWARE;
+        return A6O_FILE_MALWARE;
 	case ARMADITO_NOT_MALWARE:
-		return A6O_CLEAN;
+        return A6O_FILE_CLEAN;
 	case ARMADITO_NOT_DECIDED:
+        return A6O_FILE_UNDECIDED;
 	case ARMADITO_DOUBTFUL:
-		return A6O_UNDECIDED;
+        return A6O_FILE_SUSPICIOUS;
 	}
 
 	printf("moduleH1 internal error : %s \n", error_code_str(e));
