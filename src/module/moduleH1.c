@@ -207,7 +207,7 @@ static enum a6o_file_status moduleH1_scan(struct a6o_module *module, int fd, con
 	}
 
 	printf("moduleH1 internal error : %s \n", error_code_str(e));
-	return A6O_IERROR;
+	return A6O_FILE_IERROR;
 }
 
 static enum a6o_mod_status moduleH1_close(struct a6o_module *module)
