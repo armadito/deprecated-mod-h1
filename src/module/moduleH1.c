@@ -74,13 +74,13 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 	len = strlen(bases_location) + 1 + strlen("moduleH1\\windows\\Database_malsain_1.zip") + 1;
 	modelMalwareIat = calloc(len + 1, sizeof(char));
 	modelMalwareIat[len] = '\0';
-	sprintf_s(modelMalwareIat, len, "%s%cmoduleH1\\windows\\Database_malsain_1.zip", bases_location, a6o_path_sep());	
+	sprintf_s(modelMalwareIat, len, "%s%cmoduleH1\\windows\\Database_malsain_1.zip", bases_location, a6o_path_sep());
 
 	// modelNotMalwareEat
 	len = strlen(bases_location) + 1 + strlen("moduleH1\\windows\\Database_sain_2.zip") + 1;
 	modelNotMalwareEat = calloc(len + 1, sizeof(char));
 	modelNotMalwareEat[len] = '\0';
-	sprintf_s(modelNotMalwareEat, len, "%s%cmoduleH1\\windows\\Database_sain_2.zip", bases_location, a6o_path_sep());	
+	sprintf_s(modelNotMalwareEat, len, "%s%cmoduleH1\\windows\\Database_sain_2.zip", bases_location, a6o_path_sep());
 
 	// modelNotMalwareIat
 	len = strlen(bases_location) + 1 + strlen("moduleH1\\windows\\Database_sain_1.zip") + 1;
@@ -136,7 +136,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 	free(databaseTFIDFInf);
 	free(databaseTFIDFSain);
 	free(bases_location);
-	
+
 
 #else
 
@@ -163,7 +163,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 		return ARMADITO_MOD_INIT_ERROR;
 
 	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 PE databases loaded from " MODULEH1_DBDIR "/windows");
-	
+
 #endif
 
 
