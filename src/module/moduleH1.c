@@ -125,7 +125,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			databaseTFIDFSain) != 0)
 		return ARMADITO_MOD_INIT_ERROR;
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 PE databases loaded from %s\\moduleH1\\windows \n", bases_location);
+	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 PE databases loaded from %s\\moduleH1\\windows \n", bases_location);
 
 	free(modelMalwareEat);
 	free(modelMalwareIat);
@@ -140,7 +140,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 
 #else
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "loading module H1 ELF databases from " MODULEH1_DBDIR "/linux");
+	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "loading module H1 ELF databases from " MODULEH1_DBDIR "/linux");
 
 	if (initDB(MODULEH1_DBDIR "/linux/database.elfdata",
 			MODULEH1_DBDIR "/linux/db_malicious.zip",
@@ -149,9 +149,9 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			MODULEH1_DBDIR "/linux/tfidf_s.dat") != 0)
 		return ARMADITO_MOD_INIT_ERROR;
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 ELF databases loaded from " MODULEH1_DBDIR "/linux");
+	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 ELF databases loaded from " MODULEH1_DBDIR "/linux");
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "loading module H1 PE databases from " MODULEH1_DBDIR "/windows");
+	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "loading module H1 PE databases from " MODULEH1_DBDIR "/windows");
 	if (initDatabases(MODULEH1_DBDIR "/windows/Database_malsain_2.zip",
 			MODULEH1_DBDIR "/windows/Database_malsain_1.zip",
 			MODULEH1_DBDIR "/windows/Database_sain_2.zip",
@@ -162,7 +162,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			MODULEH1_DBDIR "/windows/DBI_sain.dat") != 0)
 		return ARMADITO_MOD_INIT_ERROR;
 
-	a6o_log(ARMADITO_LOG_MODULE, ARMADITO_LOG_LEVEL_INFO, "module H1 PE databases loaded from " MODULEH1_DBDIR "/windows");
+	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 PE databases loaded from " MODULEH1_DBDIR "/windows");
 
 #endif
 
