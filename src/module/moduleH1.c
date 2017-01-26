@@ -19,7 +19,7 @@ along with Armadito module H1.  If not, see <http://www.gnu.org/licenses/>.
 
 ***/
 
-#include <libarmadito.h>
+#include <libarmadito/armadito.h>
 
 #include <assert.h>
 #include <stdlib.h>
