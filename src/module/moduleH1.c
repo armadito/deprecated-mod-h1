@@ -40,7 +40,7 @@ struct moduleH1_data {
 
 static enum a6o_mod_status moduleH1_init(struct a6o_module *module)
 {
-	return ARMADITO_MOD_OK;
+	return A6O_MOD_OK;
 }
 
 static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
@@ -123,7 +123,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			databaseIat,
 			databaseTFIDFInf,
 			databaseTFIDFSain) != 0)
-		return ARMADITO_MOD_INIT_ERROR;
+		return A6O_MOD_INIT_ERROR;
 
 	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 PE databases loaded from %s\\moduleH1\\windows \n", bases_location);
 
@@ -147,7 +147,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			MODULEH1_DBDIR "/linux/db_safe.zip",
 			MODULEH1_DBDIR "/linux/tfidf_m.dat",
 			MODULEH1_DBDIR "/linux/tfidf_s.dat") != 0)
-		return ARMADITO_MOD_INIT_ERROR;
+		return A6O_MOD_INIT_ERROR;
 
 	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 ELF databases loaded from " MODULEH1_DBDIR "/linux");
 
@@ -160,7 +160,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 			MODULEH1_DBDIR "/windows/database_1.dat",
 			MODULEH1_DBDIR "/windows/DBI_inf.dat",
 			MODULEH1_DBDIR "/windows/DBI_sain.dat") != 0)
-		return ARMADITO_MOD_INIT_ERROR;
+		return A6O_MOD_INIT_ERROR;
 
 	a6o_log(A6O_LOG_MODULE, A6O_LOG_LEVEL_INFO, "module H1 PE databases loaded from " MODULEH1_DBDIR "/windows");
 
@@ -168,7 +168,7 @@ static enum a6o_mod_status moduleH1_post_init(struct a6o_module *module)
 
 
 
-	return ARMADITO_MOD_OK;
+	return A6O_MOD_OK;
 }
 
 // We receive a file descriptor
@@ -211,7 +211,7 @@ static enum a6o_file_status moduleH1_scan(struct a6o_module *module, int fd, con
 
 static enum a6o_mod_status moduleH1_close(struct a6o_module *module)
 {
-	return ARMADITO_MOD_OK;
+	return A6O_MOD_OK;
 }
 
 /* FIXME: add bases status */
